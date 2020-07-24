@@ -82,7 +82,7 @@ key.prototype = {
     
     fen(num){
         var that = this
-        var letter = ["G", "H", "T","A","B","C","D","E","F","I","O","P"];
+        var letter = ["G", "H", "T","A","B","C","D","E","F","I","O","P","K","L","M","N"];
         that.body = document.querySelector("body")
         if(num){
             that.b = num
