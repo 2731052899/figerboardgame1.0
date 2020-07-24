@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+
+            position: relative;
+            height: 800px;
+            background: url(1.jpg)
+        }
+
+        .start,
+        .end,
+        .sp,
+        .nandu,
+        .nandushezhi li,
+        .cai,
+        .sudu,
+        .suduxuanze,
+        .defen,.sc,.sm,.shengming{
+            width: 200px;
+            height: 100px;
+            background-color: tomato;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            font-weight: 600;
+            font-size: 30px;
+            color: yellow;
+            cursor: pointer;
+        }
+
+        .start {
+            position: absolute;
+            left: 35%;
+            top: 400px;
+        }
+
+        .end {
+            position: absolute;
+            left: 55%;
+            top: 400px;
+        }
+
+        .sp {
+            position: absolute;
+
+            top: 150px;
+        }
+
+        .nandu {
+            position: absolute;
+            left: 35%;
+            top: 500px;
+        }
+
+        .nandushezhi {
+            position: absolute;
+            left: 43%;
+            top: 350px;
+            display: none;
+        }
+
+        .sudu {
+            position: absolute;
+            left: 55%;
+            top: 500px;
+        }
+        .suduxuanze {
+            position: absolute;
+            left: 43%;
+            top: 350px;
+            display: none;
+        }
+        .shengming{
+            position: absolute;
+            left: 80%;
+            top: 0;
+        }
+        .sm{
+            position: absolute;
+            left: 90%;
+            top: 0;
+        }
+        .defen{
+            position: absolute;
+            left: 80%;
+            top:100px;
+        }
+        .sc{
+            position: absolute;
+            left: 90%;
+            top: 100px;
+        }
+        .check{
+            position: absolute;
+            font-size: 30px;
+            background-color: green;
+            border: 2px solid green;
+            border-radius: 50%;
+            margin-top: 30px;
+            margin-left: 100px;
+            cursor: pointer;
+        }
+        .suduzhi{
+            position: absolute;
+            background-color: tomato;
+            border: 2px solid yellow;
+            margin-left: 30px;
+            margin-top: 20px;
+            height: 50px;
+            line-height: 50px;
+            font-size: 30px;
+        }
+       
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="start">
+            <span>开始游戏</span>
+        </div>
+        <div class="end">
+            <span>结束游戏</span>
+        </div>
+
+        <div class="nandu">
+            <span>难度选择</span>
+        </div>
+        <div class="sudu">
+            <span>速度设置</span>
+        </div>
+      
+    </div>
+    <div class="suduxuanze">
+        <input type="text" class="suduzhi" style="width: 50px;">
+        <button class="check">确定</button>
+    </div>
+    <div class="nandubox">
+        <ul class="nandushezhi">
+            <li data-index="1">难度一<span>1</span></li>
+            <li data-index="2">难度二<span>2</span></li>
+            <li data-index="3">难度三<span>3</span></li>
+        </ul>
+    </div>
+    <div class="sp">
+        <span>暂停</span>
+    </div>
+    <div class="cai">
+        <span>菜单</span>
+    </div>
+    <div class="defen">
+        <span>得分：</span>
+    </div>
+    <div class="shengming">
+        <span>生命值</span>
+    </div>
+    <div class="sm">
+        10
+    </div>
+    <div class="sc">
+        0
+    </div>
+    <!-- <script>
+            var st = document.querySelector(".start");
+            var en = document.querySelector(".end")
+            var sp = document.querySelector(".sp");
+            var nandu = document.querySelector(".nandu")
+            var box = document.querySelector(".box")
+            var nandushezhi = document.querySelector(".nandushezhi")
+            var nandu1 = document.querySelectorAll(".nandushezhi li")
+            var cai = document.querySelector(".cai")
+            var j = 0;
+           
+
+            cai.onclick = function(){
+                box.style.display=("block")
+            }
+            sp.onclick = function(){
+                alert("回到游戏？")
+            }
+            st.onclick = function () {
+                j = 1;
+                box.style.display = "none"
+            }
+            en.onclick = function(){
+                alert("确认退出？");
+               history.go(0);
+            }
+             
+        window.onload = function(){
+             
+            let nd = 0
+            nandu.onclick = function (){
+                box.style.display = "none";
+                
+                nandushezhi.style.display = "block"   
+            
+            for (var i = 0; i < nandu1.length; i++) {
+                nandu1[i].index = i + 1
+                nandu1[i].onclick = function() {
+                    nd = i
+                    box.style.display = "block";
+                    nandushezhi.style.display = "none"
+                }  
+              }
+             
+            }
+             
+        
+         
+            var letter = [ "G", "H", "T",];
+            var body = document.querySelector("body")
+            var divs = [];
+  
+            function creat(num){
+                
+                var current = [];
+            for(var i = 0;i <num; i++){
+                current.push(letter[Math.floor(letter.length*Math.random())]);
+            }
+            
+            
+            
+            for(var i = 0; i < current.length ; i++){
+                
+                var div = document.createElement("div");
+              
+              
+                div.innerHTML = current[i];
+                div.style.cssText = "width:100px;height:100px;position:absolute;left:"+ (300+document.body.offsetHeight*Math.random())+"px;top:-200px;background:rgba("+ (255 * Math.random())+","+ (255 * Math.random())+","+ (255 * Math.random())+",1);line-height:100px;text-align:center;font-size:"+100*Math.random()+"px;"
+                document.documentElement.appendChild(div);
+                divs.push(div);
+                
+                
+            }
+            }
+      
+            creat(nd);
+            
+            var speed = 50;
+            var ci = 1;
+            
+            
+            setInterval(function(){
+               if(j == 1){
+                for (var i = 0;i <divs.length;i++){
+                   if (divs[i].offsetTop >= document.body.offsetHeight) {
+                        ci++ 
+                        document.documentElement.removeChild(divs[i]);
+                        creat(3);
+                    }
+                   divs[i].style.top = divs[i].offsetTop + speed + "px";
+                    if(ci > 3){
+                    alert("游戏失败:是否重新开始");                     
+                    j = 0;     
+                    ci = 1;
+                    history.go(0);    
+                    }
+                    
+                   
+                 
+                }
+            } },500);
+         
+            document.onkeydown = function(ev){
+                 if (j == 1) {
+                var letters = String.fromCharCode(ev.keyCode);
+                   
+                 for (var i = 0; i < divs.length; i++) {
+                     
+                    if(divs[i].innerHTML == letters){
+                        console.log(divs[i]);
+                       document.documentElement.removeChild(divs[i]);
+                        divs.splice(i,1);
+                         creat(1);
+                        break;
+                    }
+                   
+                }
+            }
+            
+        }
+ }
+    </script> -->
+    <script src="key.js"></script>
+    <script> var key = new key()</script>
+</body>
+
+</html>
