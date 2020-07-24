@@ -82,7 +82,7 @@ key.prototype = {
     
     fen(num){
         var that = this
-        var letter = ["G", "H", "T",];
+        var letter = ["G", "H", "T","A","B","C","D","E","F","I","O","P"];
         that.body = document.querySelector("body")
         if(num){
             that.b = num
@@ -130,13 +130,7 @@ key.prototype = {
                        that.divs.splice(i, 1);
                        that.sm.innerHTML = parseInt(num)
                        that.fen(1)
-                    }
-                   
-                    
-                    
-                    
-                   
-                
+                    }                              
             }
                 if (num == -1) {
                     
@@ -145,7 +139,6 @@ key.prototype = {
                     ci = 1;
                     that.j = 0
                     history.go(0);
-
                 }
             }
             }, 500);
